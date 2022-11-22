@@ -19,24 +19,25 @@ let voitures =[]
 
 let numerosChoix = []
 
-function Choix (choix){
+function Choix (number, choix){
+    this.number= number
     this.choix = choix
 }
 
-numerosChoix.push(new Choix ('entrée'))
-numerosChoix.push(new Choix ('sortie'))
-numerosChoix.push(new Choix ('autre'))
+numerosChoix.push(new Choix (1,'entrée'))
+numerosChoix.push(new Choix (2,'sortie'))
+numerosChoix.push(new Choix (3,'autre'))
 
 console.log(numerosChoix)
 
 
 
 rl.question('Action du conducteur  : :\n' , action=>{
-    while(action != numerosChoix[i].choix){
+    while(action != numerosChoix[i].number){
         i++
     }
        
-    if ( numerosChoix[i].choix == numerosChoix[0].choix){
+    if ( numerosChoix[i].number == numerosChoix[0].number){
         rl.question('inserer le numéros de la plaque d\'imatriculation : \n', answer=>{
             let dateEntree = new Date()
             voitures.push(new Voiture (1 , answer, dateEntree ))
@@ -46,7 +47,7 @@ rl.question('Action du conducteur  : :\n' , action=>{
 
 
 
-    }else if( numerosChoix[i].choix == numerosChoix[1].choix){
+    }else if( numerosChoix[i].number == numerosChoix[1].number){
         let dateSortie = new Date()
         voitures.splice(new Voiture(1 , answer, dateSortie))
         console.log(voitures)
