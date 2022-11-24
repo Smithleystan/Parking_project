@@ -1,16 +1,10 @@
-import { voitures } from "./brouillon.js"
+import { voitures } from "../index.js"
 
 
 function getFacture(immatriculation) {
         let tab = voitures.find(voiture => voiture.plaque == immatriculation)
         let date = new Date()
         let value = date.getTime()
-        let heure = date.getHours()
-        let minute = date.getMinutes()
-        let seconde = date.getSeconds()
-
-
-        // tab.sortie = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
         tab.sortie = value
         time(tab.entree, tab.sortie, tab)
 
@@ -24,17 +18,8 @@ function getFacture(immatriculation) {
                 alert('vous devez payer 1.70€')
         }
 
-
-
         tab = voitures.filter(voiture => voiture.plaque != immatriculation)
         console.table(tab)
-
-
-
-
-
-
-
 
 }
 

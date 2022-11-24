@@ -1,54 +1,51 @@
-let i = 0
-function Voiture(id, plaque, entree, sortie, temps){
-    this.id = id
-    this.plaque = plaque
-    this.entree =entree 
-    this.sortie = sortie
-    this.temps =temps
-}
+import GetTicket from "./module/GetTicket.js"
+import getFacture from "./module/facture.js"
 
-let voitures =[]
-
-
-
-
-
-let numerosChoix = []
-
-function Choix (number, choix){
-    this.number= number
-    this.choix = choix
-}
-
-numerosChoix.push(new Choix ('1','entrée'))
-numerosChoix.push(new Choix ('2','sortie'))
-numerosChoix.push(new Choix ('3', 'autre'))
-
-console.log(numerosChoix)
-
-
-let action =(window.prompt('action du conducteur'))
-
-    while(action != numerosChoix[i].number){
-        i++
+class Voiture {
+    constructor(id, plaque, entree, sortie, temps) {
+        this.id = id
+        this.plaque = plaque
+        this.entree = entree
+        this.sortie = sortie
+        this.temps = temps
     }
-       
-    if ( numerosChoix[i].choix == numerosChoix[0].number){
-        let answer = window.prompt('inserez le numéro d\'imatriculation')
-            let dateEntree = new Date()
-            voitures.push(new Voiture (1 , answer, dateEntree ))
-            console.log(voitures)
-            
-       
+}
+let choix
+let voitures = []
+
+do {
 
 
 
-    }else if( numerosChoix[i].choix == numerosChoix[1].choix){
-        let dateSortie = new Date()
-        voitures.splice(new Voiture(1 , answer, dateSortie))
-        console.log(voitures)
-       
-    }else(console.log('yep'))
-   
+    choix = Number(window.prompt(`Bonjour \n 1 entrée au parking \n 2 paiement du parking `))
 
-export {voitures, Voiture}
+    let numberID = window.prompt('inserez le numéro d\'imatriculation')
+
+
+    if (choix == 1) {
+        GetTicket(numberID)
+
+
+
+    } else if (choix == 2) {
+        getFacture(numberID)
+
+
+
+    }
+} while (choix !== 0)
+
+export { voitures, Voiture }
+
+
+
+
+
+
+
+
+
+
+
+
+
