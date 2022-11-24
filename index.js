@@ -15,24 +15,25 @@ let voitures =[]
 
 let numerosChoix = []
 
-function Choix (choix){
+function Choix (number, choix){
+    this.number= number
     this.choix = choix
 }
 
-numerosChoix.push(new Choix ('entrée'))
-numerosChoix.push(new Choix ('sortie'))
-numerosChoix.push(new Choix ('autre'))
+numerosChoix.push(new Choix ('1','entrée'))
+numerosChoix.push(new Choix ('2','sortie'))
+numerosChoix.push(new Choix ('3', 'autre'))
 
 console.log(numerosChoix)
 
 
 let action =(window.prompt('action du conducteur'))
 
-    while(action != numerosChoix[i].choix){
+    while(action != numerosChoix[i].number){
         i++
     }
        
-    if ( numerosChoix[i].choix == numerosChoix[0].choix){
+    if ( numerosChoix[i].choix == numerosChoix[0].number){
         let answer = window.prompt('inserez le numéro d\'imatriculation')
             let dateEntree = new Date()
             voitures.push(new Voiture (1 , answer, dateEntree ))
@@ -50,3 +51,4 @@ let action =(window.prompt('action du conducteur'))
     }else(console.log('yep'))
    
 
+export {voitures, Voiture}

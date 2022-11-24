@@ -1,6 +1,7 @@
 const readline = require('readline')
 const {stdin : input, stdout: output} = require('process')
 const rl = readline.createInterface(input, output)
+let now = Date()
 
 let i = 0
 function Voiture(id, plaque, entree, sortie, temps){
