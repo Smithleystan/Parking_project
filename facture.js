@@ -27,6 +27,7 @@ function getFacture(immatriculation) {
 
 
         tab = voitures.filter(voiture => voiture.plaque != immatriculation)
+        console.table(tab)
 
 
 
